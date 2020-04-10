@@ -23,7 +23,7 @@ class Display extends Component {
                 state: <strong>{message.state} </strong>
                 {message.errorCode !== undefined ? (
                   <>
-                    | errorCode: <strong>{message.errorCode === null ? 'null' : message.errorCode}</strong>
+                    | errorCode: <strong>{message.errorCode === null ? <em>null</em> : message.errorCode}</strong>
                   </>
                 ) : (
                   <></>
