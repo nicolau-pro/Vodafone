@@ -1,8 +1,9 @@
 # Vodafone coding challenge
 
 To run application:
-npm install
-npm start
+
+    npm install
+    npm start
 
 ---
 
@@ -43,6 +44,6 @@ Notes:
   - Gets the processing page
   - @param {array} data
 
-  function getProcessingPage(data) {
+    function getProcessingPage(data) {
 
-  }
+    }
