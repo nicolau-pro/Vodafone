@@ -4,9 +4,13 @@ export class Display extends Component {
   process = () => {
     let data = this.props.input.data;
     console.clear();
-    console.log('Input:');
+    console.log('\nINPUT:');
     console.table(data);
-    this.props.getProcessingPage(data);
+    this.props.getProcessingPage(data).then(function (result) {
+      console.log('\nRETURN:');
+      console.table(result);
+      return result;
+    });
   };
 
   render() {

@@ -7,7 +7,6 @@ function getProcessingPage(data) {
 
   switch (message.state) {
     case 'sucess':
-      console.log("RETURN: { title: 'Order complete', message: null }");
       return { title: 'Order complete', message: null };
 
     case 'processing':
@@ -15,32 +14,29 @@ function getProcessingPage(data) {
       if (data.length > 1) {
         let newData = [...data];
         newData.shift();
-        setTimeout(function () {
-          return getProcessingPage(newData);
-        }, 2000);
+
+        return new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            resolve(getProcessingPage(newData));
+          }, 2000);
+        });
       } else {
-        console.log("RETURN: { title: 'Error page', message: null }");
         return { title: 'Error page', message: null };
       }
-      break;
 
     case 'error':
       switch (message.errorCode) {
         case 'NO_STOCK':
-          console.log("RETURN: { title: 'Error page', message: 'No stock has been found' }");
           return { title: 'Error page', message: 'No stock has been found' };
 
         case 'INCORRECT_DETAILS':
-          console.log("RETURN: { title: 'Error page', message: 'Incorrect details have been entered' }");
           return { title: 'Error page', message: 'Incorrect details have been entered' };
 
         default:
-          console.log("RETURN: { title: 'Error page', message: null }");
           return { title: 'Error page', message: null };
       }
 
     default:
-      console.log("RETURN: { title: 'Error page', message: null }");
       return { title: 'Error page', message: null };
   }
 }
