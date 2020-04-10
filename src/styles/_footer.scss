@@ -1,15 +1,21 @@
 footer {
-  background-color: #111;
+  background: $vodafone-grey;
   bottom: 0;
-  font-size: 16px;
+  color: $white;
+  display: block;
+  font-size: 80%;
   left: 0;
-  padding: 12px;
+  padding: 0.8em;
   position: fixed;
   text-align: center;
   width: 100%;
 
-  a {
-    color: #999;
+  > a {
+    color: $white;
     text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

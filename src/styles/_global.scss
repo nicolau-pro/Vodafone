@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  color: $vodafone-grey;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $vodafone-grey;
+  display: block;
+  height: 1px;
+  margin: 0;
+  opacity: 0.2;
+  padding: 0;
+}
+
+h1 {
+  color: $vodafone-red;
+  padding: 0 1em;
+}
+
+em {
+  opacity: 0.5;
+}
+
+button {
+  background: $vodafone-red;
+  border: 0;
+  color: $white;
+  cursor: pointer;
+  font-size: 110%;
+  font-weight: 300;
+  margin: 0 0.75em 0 1.5em;
+  padding: 0.5em;
+
+  &:hover {
+    background: $vodafone-red-highlight;
+  }
+}
+
+ol {
+  counter-reset: li;
+  list-style: none;
+  margin: 0.5em;
+}
+
+li {
+  counter-increment: li;
+
+  &::before {
+    color: transparentize($vodafone-grey, 0.7);
+    content: counter(li);
+    display: inline-block;
+    margin-left: -1em;
+    width: 1em;
+  }
+}

@@ -1,0 +1,14 @@
+main {
+  padding-bottom: 2em;
+
+  section {
+    display: block;
+    margin: 0;
+    padding: 0.5em 0 1em 0;
+    width: 100%;
+
+    &:nth-of-type(odd) {
+      background: linear-gradient(to right, transparentize($vodafone-grey, 0.94) 300px, transparent 500px);
+    }
+  }
+}

@@ -37,9 +37,7 @@ class Display extends Component {
           Process
         </button>
 
-        <em> open console for details...</em>
-
-        <hr />
+        <em>Open console for details...</em>
       </section>
     );
   }
