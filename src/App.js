@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './styles/App.min.css';
 import Display from './components/Display';
+import './styles/App.min.css';
 
 function getProcessingPage(data) {
-  const message = data[0];
+  const error = { title: 'Error page', message: null };
 
-  switch (message.state) {
-    case 'sucess':
+  switch (data[0].state) {
+    case 'success':
       return { title: 'Order complete', message: null };
 
     case 'processing':
@@ -15,17 +15,15 @@ function getProcessingPage(data) {
         let newData = [...data];
         newData.shift();
 
-        return new Promise(function (resolve, reject) {
+        return new Promise(function (resolve) {
           setTimeout(function () {
             resolve(getProcessingPage(newData));
           }, 2000);
         });
-      } else {
-        return { title: 'Error page', message: null };
-      }
+      } else return error;
 
     case 'error':
-      switch (message.errorCode) {
+      switch (data[0].errorCode) {
         case 'NO_STOCK':
           return { title: 'Error page', message: 'No stock has been found' };
 
@@ -33,31 +31,28 @@ function getProcessingPage(data) {
           return { title: 'Error page', message: 'Incorrect details have been entered' };
 
         default:
-          return { title: 'Error page', message: null };
+          return error;
       }
 
     default:
-      return { title: 'Error page', message: null };
+      return error;
   }
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputs: [
-        require('./data/error-INCORRECT_DETAILS.json'),
-        require('./data/error-NO_STOCK.json'),
-        require('./data/error-null.json'),
-        require('./data/error-undefined.json'),
-        require('./data/example.json'),
-        require('./data/sucess.json'),
-      ],
-    };
-  }
+  state = {
+    inputs: [
+      require('./data/error-INCORRECT_DETAILS.json'),
+      require('./data/error-NO_STOCK.json'),
+      require('./data/error-null.json'),
+      require('./data/error-undefined.json'),
+      require('./data/example.json'),
+      require('./data/success.json'),
+    ],
+  };
 
   componentDidMount() {
-    console.log('Loaded inputs');
+    console.log('Loaded ' + this.state.inputs.length + ' inputs.');
   }
 
   render() {
