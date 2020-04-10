@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "state": "processing"
+    },
+    {
+      "state": "processing"
+    },
+    {
+      "state": "processing"
+    },
+    {
+      "state": "error",
+      "errorCode": "NO_STOCK"
+    }
+  ]
+}
