@@ -16,7 +16,7 @@ function getProcessingPage(data) {
         let newData = [...data];
         newData.shift();
         setTimeout(function () {
-          getProcessingPage(newData);
+          return getProcessingPage(newData);
         }, 2000);
       } else {
         console.log("RETURN: { title: 'Error page', message: null }");
