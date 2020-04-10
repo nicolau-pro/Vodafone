@@ -5,6 +5,9 @@ To run application:
     npm install
     npm start
 
+A simple react app was added to test all sets of inputs with ease.
+To test each set of inputs open the console and press the Process button.
+
 ---
 
 You have been tasked with creating a helper function that will be used to determine the output
